@@ -29,8 +29,8 @@ class ProductsManager {
       <td class="product-discount">${product.discount}</td>
       <td class="product-total-price">${product.finalPrice}</td>
       <td class="product-category">${product.category}</td>
-      <td><button class="btn btn-sm btn-primary update-product-btn fw-bold text-uppercase" data-productid='${product.id}'>update</button></td>
-      <td><button class="btn btn-sm btn-danger delete-product-btn fw-bold text-uppercase" data-productid='${product.id}'>delete</button></td>
+      <td><button class="btn btn-sm btn-primary update-product-btn fw-bold text-uppercase" data-productid='${product.id}' type='button'>update</button></td>
+      <td><button class="btn btn-sm btn-danger delete-product-btn fw-bold text-uppercase" data-productid='${product.id}' type='button'>delete</button></td>
     </tr>
       `;
       tableBodyEl.innerHTML += productTemplate;
