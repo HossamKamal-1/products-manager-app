@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products Management</title>
+  <!-- Font Awesome Library CSS File -->
+  <link rel="stylesheet" href="css/all.min.css" />
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Main CSS File -->
+  <link rel="stylesheet" href="css/main.css" />
+  <!---------------------------Scripts--------------------------->
+  <!-- Main Js File -->
+  <script src="js/main.js" type="module"></script>
+</head>
+
+<body class="min-vh-100 bg-dark p-3">
+
+  <div class="app py-2 rounded">
+    <h1 class="display-4 main-title text-center mb-3 text-white fw-bold">
+      Products Manager
+    </h1>
+    <div class="container">
+      <!-- Title Input -->
+      <div class="mb-3">
+        <div class="input-group  product-title-input-group">
+          <span class="input-group-text"><i class="fa-solid fa-pen-to-square"></i></span>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="productTitleInput" placeholder="Product Title">
+            <label for="productTitleInput">Product Title</label>
+          </div>
+        </div>
+        <div class="feedback-message text-danger mt-2 d-none">
+          Invalid title
+        </div>
+      </div>
+
+      <!-- Price Inputs -->
+      <div class="calculation row gx-2 mb-3 justify-content-center justify-content-lg-start gy-3 gy-lg-0">
+        <div class="col-md-3 col-lg">
+          <div>
+            <div class="input-group product-price-input-group">
+              <span class="input-group-text"><i class="fa-solid fa-money-bill-wave"></i></span>
+              <div class="form-floating">
+                <input type="text" min="1" value="1" class="form-control" id="priceInput" placeholder="Price">
+                <label for="priceInput">Price</label>
+              </div>
+            </div>
+            <div class="feedback-message text-danger mt-2 d-none">
+              Invalid price
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg">
+          <div>
+            <div class="input-group product-taxes-input-group">
+              <span class="input-group-text"><i class="fa-solid fa-money-bill-1"></i></span>
+              <div class="form-floating">
+                <input type="number" min="0" value="0" class="form-control" id="taxAmountInput" placeholder="Taxes">
+                <label for="taxAmountInput">Taxes</label>
+              </div>
+            </div>
+            <div class="feedback-message text-danger mt-2 d-none">
+              Invalid taxes
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg">
+          <div>
+            <div class="input-group product-ad-input-group">
+              <span class="input-group-text"><i class="fa-brands fa-adversal"></i></span>
+              <div class="form-floating">
+                <input type="number" min="0" value="0" class="form-control" id="adAmountInput" placeholder="Ads">
+                <label for="adAmountInput">Ads</label>
+              </div>
+            </div>
+            <div class="feedback-message text-danger mt-2 d-none">
+              Invalid ad
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-3 col-lg">
+          <div>
+            <div class="input-group product-discount-input-group">
+              <span class="input-group-text"><i class="fa-solid fa-percent"></i></span>
+              <div class="form-floating">
+                <input type="number" min="0" class="form-control" id="productDiscountInput" value="0"
+                  placeholder="Discount">
+                <label for="productDiscountInput">Discount</label>
+              </div>
+            </div>
+            <div class="feedback-message text-danger mt-2 d-none">
+              Invalid discount
+            </div>
+          </div>
+        </div>
+        <div class="col-5 col-sm-3 col-lg-auto">
+          <div class="total-price-container text-white h-100  text-center rounded p-3 fw-bold">
+            Total: <span class="total-price" id="totalPrice">1</span>
+          </div>
+        </div>
+      </div>
+      <!-- Count Input -->
+      <div class="mb-3" id="countElementContainer">
+        <div class="input-group product-count-input-group">
+          <span class="input-group-text "><i class="fa-solid fa-boxes-stacked"></i></span>
+          <div class="form-floating">
+            <input type="number" min="1" value="1" class="form-control" id="productQuantityInput"
+              placeholder="Product Title">
+            <label for="productQuantityInput">Count</label>
+          </div>
+        </div>
+        <div class="feedback-message text-danger mt-2 d-none">
+          Invalid count
+        </div>
+      </div>
+      <!-- Category Input -->
+      <div class="mb-3">
+        <div class="input-group product-category-input-group">
+          <span class="input-group-text"><i class="fa-solid fa-arrow-up-a-z"></i></span>
+          <div class="form-floating">
+            <input type="text" class="form-control" id="categoryInput" placeholder="Category">
+            <label for="categoryInput">Category</label>
+          </div>
+        </div>
+        <div class="feedback-message text-danger mt-2 d-none">
+          Invalid category
+        </div>
+      </div>
+      <!-- Create Btn -->
+      <button class="btn btn-primary w-100 fw-bold fs-4 rounded-5 mb-3" type="button" id="createProductBtn">
+        CREATE
+      </button>
+      <!-- Update Btn -->
+      <button class="btn btn-primary w-100 fw-bold fs-4 rounded-5 mb-3 d-none" type="button" id="updateProductBtn">
+        UPDATE
+      </button>
+      <!-- search Input -->
+      <div class="mb-3">
+        <div class="input-group product-search-input-group">
+          <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+          <div class="form-floating">
+            <input type="search" class="form-control" id="searchInput" placeholder="Search" data-searchmode="0">
+            <label for="searchInput">Search</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- search btns -->
+      <div class="d-flex gap-3 gap-md-5  mb-3 flex-column flex-md-row justify-content-md-between align-items-center">
+        <button class="btn btn-primary btn-sm fw-bold py-3  rounded-5 flex-md-grow-1 w-50 w-md-auto search-btn"
+          type="search" id="searchCategoryBtn" data-searchmode="1">
+          Search By
+          Category
+        </button>
+        <button class="btn btn-primary btn-sm fw-bold py-3  rounded-5 flex-md-grow-1 w-50 w-md-auto search-btn"
+          type="search" id="searchTitleBtn" data-searchmode="0">
+          Search By
+          Title
+        </button>
+      </div>
+      <!-- Delete All Btn -->
+      <button class="btn btn-danger w-100 fw-bold fs-4 rounded-5 mb-3" type="button" id="deleteAllProductsBtn">
+        Delete All &#40;
+        <span class="text-info" id="totalAddedProducts">0</span>
+        &#41;
+      </button>
+      <!-- Table -->
+      <div class="table-responsive overflow-y-auto">
+        <table class="table table-dark table-striped">
+          <thead class="text-center text-uppercase">
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>taxes</th>
+            <th>ads</th>
+            <th>discount</th>
+            <th>total</th>
+            <th>category</th>
+            <th>update</th>
+            <th>delete</th>
+          </thead>
+          <tbody class="text-center">
+            <!-- <tr class="product-row">
+              <td class="product-id">1</td>
+              <td class="product-title">samsung</td>
+              <td class="product-price">2000</td>
+              <td class="product-taxes">52</td>
+              <td class="product-ads">125</td>
+              <td class="product-discount">65698</td>
+              <td class="product-total-price">4989878</td>
+              <td class="product-category">phone</td>
+              <td><button class="btn btn-sm btn-primary update-product-btn fw-bold text-uppercase">update</button></td>
+              <td><button class="btn btn-sm btn-danger delete-product-btn fw-bold text-uppercase">delete</button></td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

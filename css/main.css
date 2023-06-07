@@ -1,0 +1,37 @@
+.input-group-text {
+  border: 0;
+  transition: 0.3s;
+}
+.input-group:focus-within .input-group-text {
+  background-color: #443c68;
+}
+.input-group input:focus {
+  box-shadow: 0 0 0 0.25rem #15fac466;
+}
+.product-title-input-group:focus-within .input-group-text {
+  color: #8f43ee;
+}
+.product-price-input-group:focus-within .input-group-text {
+  color: #00faac;
+}
+.product-taxes-input-group:focus-within .input-group-text {
+  color: #db005b;
+}
+.product-ad-input-group:focus-within .input-group-text {
+  color: #835af1;
+}
+.product-discount-input-group:focus-within .input-group-text {
+  color: #ff6e31;
+}
+.product-count-input-group:focus-within .input-group-text {
+  color: #009fbd;
+}
+.product-category-input-group:focus-within .input-group-text {
+  color: #ff0060;
+}
+.product-search-input-group:focus-within .input-group-text {
+  color: #00ffca;
+}
+.total-price-container {
+  background-color: #4942E4;
+}
